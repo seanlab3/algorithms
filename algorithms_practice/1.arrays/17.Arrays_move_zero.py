@@ -5,6 +5,25 @@ preserving the order of the other elements.
     returns => [false, 1, 1, 2, 1, 3, "a", 0, 0]
 The time complexity of the below algorithm is O(n).
 """
+
+
+def move_zeros(array):
+    result = []
+    zeros = 0
+
+    for i in array:
+        if i is 0:  # not using `not i` to avoid `False`, `[]`, etc.
+            zeros += 1
+        else:
+            result.append(i)
+
+    result.extend([0] * zeros)
+    return result
+a=[False, 1, 0, 1, 2, 0, 1, 3, "a"]
+
+print(move_zeros(a))
+
+
 from algorithms.arrays import move_zeros
 
 a=[False, 1, 0, 1, 2, 0, 1, 3, "a"]
